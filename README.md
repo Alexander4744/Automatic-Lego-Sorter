@@ -2,7 +2,7 @@
 
 A fully integrated system for detecting and automatically sorting LEGO bricks based on their shape using YOLO11 computer vision and embedded real-time control.
 
-![Complete LEGO Sorting System](../Images/Complete%20Sorting%20Line.png)
+[Complete LEGO Sorting System](../Images/Complete%20Sorting%20Line.png)
 
 ## Project Overview
 

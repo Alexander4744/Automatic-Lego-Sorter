@@ -11,6 +11,14 @@ This section describes the design, components, and operational characteristics o
 
 ---
 
+## System Overview
+
+![Complete LEGO Sorting System](../Images/Complete%20Sorting%20Line.png)
+
+The image above shows the fully integrated mechanical system with conveyor belts, imaging station, distribution manifold, and output bins.
+
+---
+
 ## Stage 1: Input Conveyor Belt (Band 1)
 
 ### Purpose

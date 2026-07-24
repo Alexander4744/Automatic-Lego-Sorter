@@ -228,10 +228,3 @@ The system is **not over-engineered**; it's correctly matched to its motor hardw
 5. **Bin-level sensor** → Auto-stop when bin full (currently manual check)
 
 ---
-
-## References
-
-- **Belt specifications**: [Your vendor/datasheet link]
-- **Servo datasheet**: [MG996R or equivalent]
-- **Motor specs**: [12V DC motor datasheet]
-- **Sensor datasheet**: HC-SR04 ultrasonic module (widely available)

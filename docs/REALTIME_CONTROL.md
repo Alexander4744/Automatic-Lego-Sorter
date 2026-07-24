@@ -428,10 +428,3 @@ Use any serial monitor (PuTTY, Arduino IDE Serial Monitor, etc.) at 115200 baud:
 6. **Predictive servo**: Pre-position servo before brick arrives (requires coordinated timing with Pi)
 
 ---
-
-## References
-
-- **STM32F401RE Datasheet**: [Link to official datasheet]
-- **L293D Motor Driver Datasheet**: [Link]
-- **HC-SR04 Ultrasonic Sensor Guide**: [Common tutorial links]
-- **Servo Control Theory**: PWM 50 Hz; 1–2 ms pulse = 0–180°

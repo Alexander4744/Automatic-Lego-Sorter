@@ -222,22 +222,49 @@ model.export(format='onnx')
 
 #### Validation Metrics
 
-After training, metrics printed:
-```
-Epoch 50/100
-class      images  targets      P      R  mAP50  mAP50-95
-all           50       60  0.92  0.88  0.90     0.75
-1x1            10       12  0.95  0.90  0.92     0.78
-1x2            10       12  0.90  0.85  0.88     0.72
-1x4            10       12  0.88  0.82  0.85     0.68  ← Lower on problematic classes
-2x2            10       12  0.93  0.90  0.91     0.76
-2x4            10       12  0.91  0.87  0.89     0.74
-```
+After training, metrics are generated automatically by YOLO. The plots below show typical training results:
+
+**Training Results Summary**
+![Training Results](../Images/results.png)
+
+**Precision-Recall Curve**
+![Precision-Recall Curve](../Images/BoxPR_curve.png)
+This curve shows how precision and recall trade off across different confidence thresholds. The area under the curve (AUC) indicates overall detection quality.
+
+**Precision Curve**
+![Precision Curve](../Images/BoxP_curve.png)
+Precision shows what percentage of predicted detections are actually correct. Higher curves indicate better performance.
+
+**Recall Curve**
+![Recall Curve](../Images/BoxR_curve.png)
+Recall shows what percentage of actual bricks are successfully detected. This is critical for ensuring no bricks slip through unclassified.
+
+**F1 Score Curve**
+![F1 Score Curve](../Images/BoxF1_curve.png)
+The F1 score is the harmonic mean of precision and recall. A score of 1.0 indicates perfect detection; lower scores (0.5–0.8 on problematic classes) suggest difficulty distinguishing similar brick types.
 
 **Key metrics:**
 - **P (Precision)**: Of predicted positives, how many correct
 - **R (Recall)**: Of actual positives, how many detected
 - **mAP50**: Mean Average Precision @ IoU 0.5 threshold
+
+---
+
+## Confusion Matrix Analysis
+
+The confusion matrix reveals which brick types are commonly misclassified:
+
+**Raw Confusion Matrix (counts)**
+![Confusion Matrix](../Images/confusion_matrix.png)
+
+**Normalized Confusion Matrix (percentages)**
+![Normalized Confusion Matrix](../Images/confusion_matrix_normalized.png)
+
+**Interpretation:**
+- Diagonal values (top-left to bottom-right) are correct predictions
+- Off-diagonal values show misclassifications
+- The normalized version makes it easier to spot problem areas as percentages
+- 1×4 vs 2×4 and 1×2 vs 2×2 pairs show elevated off-diagonal values, confirming the single-angle dataset limitation
 
 ---
 
@@ -398,6 +425,10 @@ class GUI(QMainWindow):
         # ... add to layout ...
 ```
 
+**Python GUI in Action**
+![Python GUI Interface](../Images/Python%20GUI.png)
+The GUI provides manual control buttons for capture, inference, and routing for testing and debugging.
+
 ### Inference Timing
 
 **End-to-end inference time per frame:**
@@ -428,6 +459,8 @@ class GUI(QMainWindow):
 - Manual annotation errors in original dataset (a few bricks double-labeled)
 
 **Example**: A 1×4 brick (1 stud × 4 studs, viewed top-down) looks like a 2×4 brick (2 studs × 4 studs) if the 1-stud dimension aligns with camera perspective.
+
+**Evidence from Confusion Matrix**: The normalized confusion matrix shows elevated cross-terms between 1×4↔2×4 and 1×2↔2×2, confirming this systematic issue.
 
 **Mitigation (Long-term)**
 1. Use the operating system to capture high-quality dataset:

@@ -168,10 +168,6 @@ For detailed technical information, see:
 - **[REALTIME_CONTROL.md](./docs/REALTIME_CONTROL.md)** — STM32 architecture, protocol, timing
 - **[AI_COMPUTER_VISION.md](./docs/AI_COMPUTER_VISION.md)** — YOLO11 training, dataset, inference
 
-## License
-
-[Specify your license here, e.g., MIT, GPL, etc.]
-
 ## Author
 
 Alexander4744

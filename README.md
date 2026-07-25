@@ -86,8 +86,10 @@ These timings reflect the physical constraints of the motor/belt system and woul
 
 ### Issue: Brick Misclassification
 - **Symptom**: 1×4 bricks confused with 2×4; 1×2 confused with 2×2
-- **Root cause**: Training dataset captured from single viewpoint; bricks appear identical in that orientation
-- **Mitigation**: Use the system to auto-generate training data from multiple angles, manually correct labels, and retrain
+- **Root cause**: From a sideview angle these pieces are generally hard to tell apart
+- **Mitigation**:
+   - Use the system to auto-generate training data with controlled environment variables.
+   - Add an addinoal frame to the conveyor such that the camera captures the pieces from an angle around 45 degrees as oppposed to the current angle of 90.
 
 ### Issue: Mechanical Speed Bottleneck
 - **Symptom**: Throughput limited to ~1 brick per 15–20 seconds

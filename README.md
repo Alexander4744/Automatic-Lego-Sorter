@@ -4,7 +4,7 @@ A fully integrated system for detecting and automatically sorting LEGO bricks ba
 
 ![Complete LEGO Sorting System](/Images/Complete%20Sorting%20Line.png)
 
-[![Watch the video](https://img.youtube.com/vi/1aeM8qEXAd8/0.jpg)](https://img.youtube.com/vi/1aeM8qEXAd8)
+[![Watch the video](https://img.youtube.com/vi/1aeM8qEXAd8/0.jpg)](https://youtu.be/1aeM8qEXAd8)
 
 ## Project Overview
 
